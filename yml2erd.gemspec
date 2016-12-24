@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{This gem allows us to generate erd easily.}
   spec.description   = %q{Convert simple yml to erd}
-  spec.homepage      = "https://github.com/asmsuechan/yml2erb"
+  spec.homepage      = "https://github.com/asmsuechan/yml2erd"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
@@ -29,6 +29,9 @@ Gem::Specification.new do |spec|
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
+
+  spec.add_dependency "ruby-graphviz"
+  spec.add_dependency "thor"
 
   spec.add_development_dependency "bundler", "~> 1.13"
   spec.add_development_dependency "rake", "~> 10.0"
