@@ -1,8 +1,9 @@
 # Yml2erd
+yml2erd allows us to generate erd easily.
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/yml2erd`. To experiment with that code, run `bin/console` for an interactive prompt.
+![output_image](https://raw.githubusercontent.com/asmsuechan/asmsuechan.github.io/master/images/image.png)
 
-TODO: Delete this and the text above, and describe your gem
+When I consider database structure, I wanted erd generator. However there are no tools to fit. So I created.
 
 ## Installation
 
@@ -21,8 +22,11 @@ Or install it yourself as:
     $ gem install yml2erd
 
 ## Usage
-
-TODO: Write usage instructions here
+Run this,
+```
+$ yml2erd structure.yml
+```
+and we get output.png
 
 ## Development
 
@@ -32,7 +36,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/yml2erd.
+Bug reports and pull requests are welcome on GitHub at https://github.com/asmsuechan/yml2erd.
 
 
 ## License
