@@ -4,7 +4,7 @@ module Yml2erd
 
     attr_accessor :structure_yml, :table_names
 
-    def initializer(parsed_schema)
+    def initialize(yml)
       @structure_yml = yml
       @table_names = table_names
     end
@@ -23,7 +23,7 @@ module Yml2erd
     end
 
     def relations
-      table_names.map { |table_name| table_name.relation }
+      table_names.map { |table_name| relation(table_name) }
     end
 
     # private

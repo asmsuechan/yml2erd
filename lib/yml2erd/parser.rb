@@ -11,7 +11,7 @@ module Yml2erd
       def parse(path)
         yml = YAML.load_file(path)
         check_keyname(yml)
-        Yml2erd::ShcemaStructure.new(yml)
+        Yml2erd::SchemaStructure.new(yml)
       end
 
       private
@@ -19,7 +19,7 @@ module Yml2erd
       # yml rule
       # you can see more in sample.yml
       def check_keyname(yml)
-        raise InvalidKeyNameError
+        # raise InvalidKeyNameError
       end
     end
   end

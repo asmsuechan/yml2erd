@@ -7,7 +7,6 @@ module Yml2erd
     desc "convert yml", "generate erd"
     def convert(path)
       schema_structure = Yml2erd::Parser.parse(path)
-      relations = Diagram.build_relations(schema_structure)
       Diagram.create(schema_structure)
     end
   end
