@@ -1,0 +1,28 @@
+users:
+  columns:
+    - name: string
+    - email: string
+  relations:
+    belongs_to:
+      - user_auths
+      - companies
+    has_many:
+      - posts
+user_auths:
+  columns:
+    - password: string
+  relations:
+    has_many:
+      - users
+posts:
+  columns:
+    - content: text
+  relations:
+    belongs_to:
+      - users
+companies:
+  columns:
+    - name: string
+    - address: string
+  relations:
+    has_many: users
