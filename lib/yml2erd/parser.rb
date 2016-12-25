@@ -7,7 +7,9 @@ module Yml2erd
       # returns an object of Yml2erd::SchemaStructure
       def parse(path)
         yml = YAML.load_file(path)
-        Yml2erd::SchemaStructure.new(yml)
+        ss = Yml2erd::SchemaStructure.new(yml)
+        Yml2erd::SchemaStructure::Validator.new(ss).validate
+        ss
       end
     end
   end
