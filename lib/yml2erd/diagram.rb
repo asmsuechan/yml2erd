@@ -3,11 +3,14 @@ require "graphviz"
 module Yml2erd
   class Diagram
     class << self
+      DEFAULT_OPTIONS = { output_path: './output.png' }.freeze
+
       def table_relations(schema_structure)
         schema_structure.relations
       end
 
       def create(schema_structure, opts = {})
+        opts = opts.merge(DEFAULT_OPTIONS)
         GraphViz::options(use: 'dot')
         g = GraphViz::new('structs', label: opts[:project_name])
 

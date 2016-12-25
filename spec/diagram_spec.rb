@@ -9,7 +9,7 @@ describe Yml2erd::Diagram do
 
     let(:opts_default) { {} }
     let(:opts_project_name) { { project_name: 'Project Name' } }
-    let(:opts_svg) { { output_style: 'svg', output_path: './output.png' } }
+    let(:opts_svg) { { output_style: 'svg' } }
     let(:opts_png) { { output_style: 'png' } }
     let(:opts_output_path) { { output_path: './output.png' } }
 
