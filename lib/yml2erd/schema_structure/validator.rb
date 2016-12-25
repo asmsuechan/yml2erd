@@ -42,6 +42,8 @@ module Yml2erd
       #       - <table_name>
       #     has_many:
       #       - <table_name>
+      #   index:
+      #     - <column_name>
       # ```
       # belongs_to or has_many is not necessary
       def keyname

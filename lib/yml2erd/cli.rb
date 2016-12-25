@@ -12,6 +12,7 @@ module Yml2erd
       schema_structure = Yml2erd::Parser.parse(path)
       output_path = options[:output] || DEFAULT_OUTPUT_PATH
       Yml2erd::Diagram.create(schema_structure, output_path)
+      puts 'Successfully converted!'
     end
   end
 end
