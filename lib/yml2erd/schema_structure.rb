@@ -1,12 +1,12 @@
 module Yml2erd
   class SchemaStructure
-    class InvalidKeyNameError < StandardError;end
 
     attr_accessor :structure_yml, :table_names
 
     def initialize(yml)
       @structure_yml = yml
       @table_names = table_names
+      Yml2erd::SchemaStructure::Validator.new(@structure_yml).validate
     end
 
     # returns an array which has table_names like bellow
@@ -26,11 +26,16 @@ module Yml2erd
       table_names.map { |table_name| relation(table_name) }
     end
 
-    # private
+    # returns a hash like below
+    # => {"columns"=>[{"name"=>"string"}, {"email"=>"string"}], "relations"=>{"belongs_to"=>["user_auths", "companies"], "has_many"=>["posts"]}}
+    def table(table_name)
+      structure_yml[table_name]
+    end
 
-    # def check_keyname(yml)
-    #   # implement to detect incorrect key name
-    #   raise InvalidKeyNameError
-    # end
+    # returns an array like below
+    # => [{"name"=>"string"}, {"email"=>"string"}]
+    def columns(table_name)
+      structure_yml[table_name]['columns']
+    end
   end
 end
