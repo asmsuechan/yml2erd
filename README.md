@@ -24,7 +24,7 @@ Or install it yourself as:
 ## Usage
 Run this,
 ```
-$ yml2erd structure.yml
+$ yml2erd convert structure.yml
 ```
 and we get output.png
 
