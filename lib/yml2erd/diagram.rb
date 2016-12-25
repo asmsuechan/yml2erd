@@ -7,7 +7,7 @@ module Yml2erd
         schema_structure.relations
       end
 
-      def create(schema_structure, output_path = 'output.png')
+      def create(schema_structure, output_path)
         GraphViz::options(use: 'dot')
         g = GraphViz::new('structs')
 
