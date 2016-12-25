@@ -1,4 +1,6 @@
 # Yml2erd
+[![Build Status](https://travis-ci.org/asmsuechan/yml2erd.svg?branch=master)](https://travis-ci.org/asmsuechan/yml2erd)
+
 yml2erd allows us to generate erd easily.
 
 ![output_image](https://raw.githubusercontent.com/asmsuechan/asmsuechan.github.io/master/images/image.png)
