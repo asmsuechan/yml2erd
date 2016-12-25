@@ -31,7 +31,7 @@ module Yml2erd
       # columns must be an array
       def columns
         ss.table_names.each do |table_name|
-          raise InvalidYmlStructureError, 'columns must be an array' unless ss.columns(table_name).class == 'Array'
+          raise InvalidYmlStructureError, 'columns must be an array' unless ss.columns(table_name).class == Array
         end
       end
 

@@ -1,4 +1,5 @@
 require 'yml2erd/schema_structure'
+require 'yml2erd/schema_structure/validator'
 require 'yaml'
 
 module Yml2erd
