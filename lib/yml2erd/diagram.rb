@@ -13,17 +13,15 @@ module Yml2erd
 
         columns = ''
         table_names = schema_structure.table_names
+
         table_names.each do |table_name|
           schema_structure.columns(table_name).each do |column|
-            column.each { |key, value| columns += "#{key}: #{value}\n" }
+            column.each { |key, value| columns += "#{key}: <FONT color='gray'>#{value}</FONT><BR/>" }
           end
 
           index = schema_structure.index(table_name)
-          if index
-            g.add_nodes(table_name, shape: "record", label: "{#{table_name} | #{columns} | indexed: #{index.to_s}}")
-          else
-            g.add_nodes(table_name, shape: "record", label: "{#{table_name} | #{columns}}")
-          end
+          label = build_label(table_name, columns, index)
+          g.add_nodes(table_name, shape: "record", label: label, style: "rounded")
         end
 
         table_names.each do |table_name|
@@ -35,6 +33,14 @@ module Yml2erd
         end
 
         g.output(:png => output_path)
+      end
+
+      def build_label(table_name, columns, index)
+        if index
+          "<{<FONT POINT-SIZE='15'>#{table_name}</FONT> | #{columns} | indexed: #{index.to_s}}>"
+        else
+          "<{<FONT POINT-SIZE='15'>#{table_name}</FONT> | #{columns}}>"
+        end
       end
     end
   end
