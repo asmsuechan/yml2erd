@@ -18,7 +18,7 @@ module Yml2erd
     # { users: { belongs_to: ['user_auths', 'companies'], has_many: ['posts'] } }
     def relation(table_name)
       relations = structure_yml[table_name]['relations']
-      { table_name.to_sym => relations }
+      # { table_name.to_sym => relations }
     end
 
     def relations

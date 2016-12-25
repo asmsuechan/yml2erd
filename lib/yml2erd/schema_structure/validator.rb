@@ -1,6 +1,8 @@
 module Yml2erd
   class SchemaStructure
     class Validator
+      RELATIONS_KEY = %w(belongs_to has_many)
+
       class InvalidKeyNameError < StandardError;end
       class InvalidYmlStructureError < StandardError;end
 
@@ -49,10 +51,14 @@ module Yml2erd
       # belongs_to or has_many is not necessary
       def keyname
         ss.table_names.each do |table_name|
-          if ss.columns(table_name).nil? || ss.table(table_name)['relations'].nil?
+          if correct_relation_key? || ss.columns(table_name).nil? || ss.relation(table_name).nil?
             raise InvalidKeyNameError, 'you must use correct keyname'
           end
         end
+      end
+
+      def correct_relation_key?
+        ss.relation(table_name).map { |key| RELATIONS_KEY.include?(key) }.all?
       end
     end
   end

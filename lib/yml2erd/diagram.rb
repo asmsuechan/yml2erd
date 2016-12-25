@@ -14,7 +14,7 @@ module Yml2erd
         columns = ''
         table_names = schema_structure.table_names
         table_names.each do |table_name|
-          schema_structure.structure_yml[table_name]['columns'].each do |column|
+          schema_structure.columns(table_name).each do |column|
             column.each { |key, value| columns += "#{key}: #{value}\n" }
           end
 
@@ -22,8 +22,8 @@ module Yml2erd
         end
 
         table_names.each do |table_name|
-          unless schema_structure.structure_yml[table_name]["relations"]["belongs_to"].nil?
-            schema_structure.structure_yml[table_name]['relations']['belongs_to'].each do |belongs_to|
+          unless schema_structure.relation(table_name)['belongs_to'].nil?
+            schema_structure.relation(table_name)['belongs_to'].each do |belongs_to|
               g.add_edges(belongs_to, table_name)
             end
           end
