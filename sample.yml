@@ -8,6 +8,8 @@ users:
       - companies
     has_many:
       - posts
+  index:
+    - email
 user_auths:
   columns:
     - password: string

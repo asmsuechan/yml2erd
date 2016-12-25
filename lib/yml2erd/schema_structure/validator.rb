@@ -26,10 +26,6 @@ module Yml2erd
         raise InvalidYmlStructureError
       end
 
-      def table_name
-        raise InvalidKeyNameError
-      end
-
       # columns must be an array
       def columns
         ss.table_names.each do |table_name|
@@ -51,13 +47,13 @@ module Yml2erd
       # belongs_to or has_many is not necessary
       def keyname
         ss.table_names.each do |table_name|
-          if correct_relation_key? || ss.columns(table_name).nil? || ss.relation(table_name).nil?
+          if correct_relation_key?(table_name) || ss.columns(table_name).nil? || ss.relation(table_name).nil?
             raise InvalidKeyNameError, 'you must use correct keyname'
           end
         end
       end
 
-      def correct_relation_key?
+      def correct_relation_key?(table_name)
         ss.relation(table_name).map { |key| RELATIONS_KEY.include?(key) }.all?
       end
     end

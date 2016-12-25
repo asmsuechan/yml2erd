@@ -18,7 +18,12 @@ module Yml2erd
             column.each { |key, value| columns += "#{key}: #{value}\n" }
           end
 
-          g.add_nodes(table_name, shape: "record", label: "{#{table_name} | #{columns}}")
+          index = schema_structure.index(table_name)
+          if index
+            g.add_nodes(table_name, shape: "record", label: "{#{table_name} | #{columns} | indexed: #{index.to_s}}")
+          else
+            g.add_nodes(table_name, shape: "record", label: "{#{table_name} | #{columns}}")
+          end
         end
 
         table_names.each do |table_name|

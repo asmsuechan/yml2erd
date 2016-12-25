@@ -36,5 +36,11 @@ module Yml2erd
     def columns(table_name)
       structure_yml[table_name]['columns']
     end
+
+    # returns an array like below
+    # => ["email"]
+    def index(table_name)
+      structure_yml[table_name]['index']
+    end
   end
 end
