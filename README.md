@@ -28,6 +28,22 @@ $ yml2erd structure.yml
 ```
 and we get output.png
 
+## Rule
+You must write yml just like below
+
+```
+<table_name>:
+  columns:
+    - <column_name>: <column_type>
+  relations:
+    belongs_to:
+      - <table_name>
+    has_many:
+      - <table_name>
+```
+
+belongs_to or has_many is not necessary
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
