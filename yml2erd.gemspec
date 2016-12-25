@@ -17,7 +17,7 @@ Gem::Specification.new do |spec|
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})
   end
-  spec.bindir        = "exec"
+  spec.bindir        = "exe"
   spec.executables   = ["yml2erd"]
   spec.require_paths = ["lib"]
 
