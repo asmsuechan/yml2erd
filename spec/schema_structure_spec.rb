@@ -6,6 +6,7 @@ describe Yml2erd::SchemaStructure do
   let(:yml) { YAML.load_file(path) }
   let(:ss) { Yml2erd::SchemaStructure.new(yml) }
   let(:table_name) { ss.table_names.first }
+  let(:relation_keys) { ['belongs_to', 'has_many'] }
 
   describe '#initialize' do
     it 'should not raise any errors' do
@@ -23,7 +24,7 @@ describe Yml2erd::SchemaStructure do
     it 'should return a hash correctly' do
       aggregate_failures do
         expect(ss.relation(table_name).class).to eq(Hash)
-        expect(ss.relation(table_name).keys.first).to eq(table_name.to_sym)
+        expect(ss.relation(table_name).keys.map { |key| relation_keys.include?(key) }.all?).to be_truthy
       end
     end
   end
