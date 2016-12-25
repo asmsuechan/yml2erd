@@ -8,6 +8,13 @@ yml2erd allows us to generate erd easily.
 When I consider database structure, I wanted erd generator. However there are no tools to fit. So I created.
 
 ## Installation
+Before install this gem, you need to install graphviz.
+
+```
+$ brew install graphviz
+```
+
+You can get more from [here](http://www.graphviz.org/Download..php)
 
 Add this line to your application's Gemfile:
 
@@ -28,7 +35,18 @@ Run this,
 ```
 $ yml2erd convert structure.yml
 ```
-and we get output.png
+and we get output.png.
+
+```
+$ yml2erd help convert
+Usage:
+  yml2erd convert <path>
+
+Options:
+  o, [--output=FILE_PATH]  # default: output.png
+
+Convert erd from yml
+```
 
 ## Rule
 You must write yml just like below
@@ -44,7 +62,7 @@ You must write yml just like below
       - <table_name>
 ```
 
-belongs_to or has_many is not necessary
+belongs_to or has_many is not necessary.
 
 ## Development
 
