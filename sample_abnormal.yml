@@ -1,0 +1,19 @@
+invalid_columns_style:
+  columns:
+    name: string
+    email: string
+  relations:
+invalid_relation_key:
+  columns:
+    - name: string
+    - email: string
+  relations:
+    invalid_key:
+      - child
+child:
+  columns:
+    - name: string
+    - email: string
+  relations:
+    belongs_to:
+      - invalid_relation_key
