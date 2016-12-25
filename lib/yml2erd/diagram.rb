@@ -11,10 +11,10 @@ module Yml2erd
         GraphViz::options(use: 'dot')
         g = GraphViz::new('structs', label: opts[:project_name])
 
-        columns = ''
         table_names = schema_structure.table_names
 
         table_names.each do |table_name|
+          columns = ''
           schema_structure.columns(table_name).each do |column|
             column.each { |key, value| columns += "#{key}: <FONT color='gray'>#{value}</FONT><BR/>" }
           end
