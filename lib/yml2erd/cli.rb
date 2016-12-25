@@ -8,7 +8,7 @@ module Yml2erd
 
     desc "convert <path>", "Convert erd from yml"
     option :output, aliases: :o, banner: 'FILE_PATH', desc: 'default: output.png'
-    option :projectname, aliases: :p, banner: 'PROJECT_NAME'
+    option :projectname, aliases: :p, banner: 'PROJECT_NAME', desc: 'default: null'
     option :outputstyle, aliases: :s, banner: 'OUTPUT_STYLE', desc: 'svg or png, default: png'
     def convert(path)
       schema_structure = Yml2erd::Parser.parse(path)
