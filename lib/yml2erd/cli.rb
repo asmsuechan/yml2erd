@@ -7,7 +7,7 @@ module Yml2erd
     desc "convert yml", "generate erd"
     def convert(path)
       schema_structure = Yml2erd::Parser.parse(path)
-      Diagram.create(schema_structure)
+      Yml2erd::Diagram.create(schema_structure)
     end
   end
 end

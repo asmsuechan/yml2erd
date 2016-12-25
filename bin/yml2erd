@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+require 'yml2erd'
+Yml2erd::CLI.start

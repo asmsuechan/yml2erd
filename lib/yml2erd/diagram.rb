@@ -7,7 +7,7 @@ module Yml2erd
         schema_structure.relations
       end
 
-      def create(schema_structure)
+      def create(schema_structure, output_path = 'output.png')
         GraphViz::options(use: 'dot')
         g = GraphViz::new('structs')
 
@@ -29,8 +29,7 @@ module Yml2erd
           end
         end
 
-        # TODO: can specify output path
-        g.output(:png => "output.png")
+        g.output(:png => output_path)
       end
     end
   end
