@@ -33,7 +33,7 @@ module Yml2erd
         end
 
         if opts[:output_style] == 'svg'
-          g.output(:svg=> opts[:output_path])
+          g.output(:svg=> opts[:output_path] + '.svg')
         else
           g.output(:png => opts[:output_path])
         end
