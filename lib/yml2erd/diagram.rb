@@ -7,9 +7,9 @@ module Yml2erd
         schema_structure.relations
       end
 
-      def create(schema_structure, output_path)
+      def create(schema_structure, opts = {})
         GraphViz::options(use: 'dot')
-        g = GraphViz::new('structs')
+        g = GraphViz::new('structs', label: opts[:project_name])
 
         columns = ''
         table_names = schema_structure.table_names
@@ -32,7 +32,11 @@ module Yml2erd
           end
         end
 
-        g.output(:png => output_path)
+        if opts[:output_style] == 'svg'
+          g.output(:svg=> opts[:output_path])
+        else
+          g.output(:png => opts[:output_path])
+        end
       end
 
       def build_label(table_name, columns, index)
