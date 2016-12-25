@@ -45,7 +45,7 @@ Usage:
 Options:
   o, [--output=FILE_PATH]          # default: output.png
   p, [--projectname=PROJECT_NAME]
-  s, [--outputstyle=OUTPUT_STYLE]  # .svg or .png, default: .png
+  s, [--outputstyle=OUTPUT_STYLE]  # svg or png, default: png
 
 Convert erd from yml
 ```
