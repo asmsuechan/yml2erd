@@ -5,8 +5,6 @@ require "yaml"
 
 module Yml2erd
   class CLI < Thor
-    class YmlNotFoundError < StandardError;end
-
     desc "convert <path>", "Convert erd from yml"
     option :output, aliases: :o, banner: 'FILE_PATH', desc: 'default: output.png'
     option :projectname, aliases: :p, banner: 'PROJECT_NAME', desc: 'default: null'
@@ -32,7 +30,7 @@ module Yml2erd
     end
 
     # This method has a bug around `which gvpr`.
-    # That is because which may not exist in except UNIX based OS.
+    # That is because which command may not exist in except UNIX based OS.
     def abort_if_graphviz_isnt_installed
       abort "GraphViz is not installed, please install graphviz from http://www.graphviz.org/Download..php \n\nOr you can get by\n   $ brew install graphviz    # on macOS\n   $ apt-get install graphviz # on Ubuntu" unless !`which gvpr`.empty?
     end
