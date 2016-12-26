@@ -12,6 +12,7 @@ module Yml2erd
     option :projectname, aliases: :p, banner: 'PROJECT_NAME', desc: 'default: null'
     option :outputstyle, aliases: :s, banner: 'OUTPUT_STYLE', desc: 'svg or png, default: png'
     def convert(path)
+      abort_if_graphviz_isnt_installed
       schema_structure = load_yml(path)
       opts = {
         output_path: options[:output_path],
@@ -28,6 +29,12 @@ module Yml2erd
       abort "#{path} is not found, please check your .yml file path" unless File.exists?(path)
       yml = YAML.load_file(path)
       Yml2erd::Parser.parse(yml)
+    end
+
+    # This method has a bug around `which gvpr`.
+    # That is because which may not exist in except UNIX based OS.
+    def abort_if_graphviz_isnt_installed
+      abort "GraphViz is not installed, please install graphviz from http://www.graphviz.org/Download..php \n\nOr you can get by\n   $ brew install graphviz    # on macOS\n   $ apt-get install graphviz # on Ubuntu" unless !`which gvpr`.empty?
     end
   end
 end
