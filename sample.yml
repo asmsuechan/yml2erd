@@ -1,30 +1,64 @@
+companies:
+  columns:
+    - id: integer
+    - name: string
+    - address: string
+    - created_at: datetime
+    - updated_at: datetime
+  relations:
+    has_many:
+      - users
 users:
   columns:
-    - name: string
+    - id: integer
+    - crypted_password: string
     - email: string
+    - password_salt: string
+    - auth_token: string
+    - company_id: integer
+    - created_at: datetime
+    - updated_at: datetime
+    - deleted_at: datetime
+  index:
+    - email
   relations:
     belongs_to:
-      - user_auths
       - companies
     has_many:
       - posts
-  index:
-    - email
-user_auths:
+      - user_logs
+roles:
   columns:
-    - password: string
-  relations:
-    has_many:
-      - users
-posts:
-  columns:
-    - content: text
+    - id: integer
+    - title: string
+    - user_id: intger
+    - created_at: datetime
+    - updated_at: datetime
   relations:
     belongs_to:
       - users
-companies:
+user_logs:
   columns:
-    - name: string
-    - address: string
+    - id: integer
+    - recently_signed_in: datetime
+    - user_id: integer
+    - created_at: datetime
+    - updated_at: datetime
   relations:
-    has_many: users
+    belongs_to:
+      - users
+posts:
+  columns:
+    - id: integer
+    - title: string
+    - body: text
+    - attachment_path: string
+    - deleted_at: datetime
+    - user_id: integer
+    - created_at: datetime
+    - updated_at: datetime
+  index:
+    - user_id
+  relations:
+    belongs_to:
+      - users
