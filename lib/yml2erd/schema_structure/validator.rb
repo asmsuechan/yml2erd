@@ -48,7 +48,7 @@ module Yml2erd
       # belongs_to or has_many is not necessary
       def keyname
         ss.table_names.each do |table_name|
-          if correct_relation_key?(table_name) && ss.columns(table_name).nil? && ss.relation(table_name).nil?
+          if ss.columns(table_name).nil? && ss.relation(table_name).nil?
             raise InvalidKeyNameError, 'you must use correct keyname'
           end
         end

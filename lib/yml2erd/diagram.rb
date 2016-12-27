@@ -24,7 +24,8 @@ module Yml2erd
         end
 
         table_names.each do |table_name|
-          unless schema_structure.relation(table_name)['belongs_to'].nil?
+          if !schema_structure.relation(table_name).nil? && \
+            !schema_structure.relation(table_name)['belongs_to'].nil?
             schema_structure.relation(table_name)['belongs_to'].each do |belongs_to|
               g.add_edges(belongs_to, table_name)
             end
