@@ -1,5 +1,5 @@
 invalid_columns_style:
-  columns:
+  column:
     name: string
     email: string
   relations:
