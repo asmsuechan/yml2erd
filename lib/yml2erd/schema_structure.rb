@@ -11,7 +11,7 @@ module Yml2erd
     # returns an array which has table_names like bellow
     # => ["users", "user_auths", "posts", "companies"]
     def table_names
-      structure_yml.to_a.map { |s| s.first }
+      structure_yml.to_a.map { |s| s.first }.select{ |tn| tn != 'shared_columns' }
     end
 
     # returns a hash like below
@@ -41,6 +41,12 @@ module Yml2erd
     # => ["email"]
     def index(table_name)
       structure_yml[table_name]['index']
+    end
+
+    # returns a hash like below
+    # => { "id"=>"integer", "created_at"=>"datetime", "updated_at"=>"datetime" }
+    def shared_columns
+      structure_yml['shared_columns']
     end
   end
 end

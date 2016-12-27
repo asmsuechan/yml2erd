@@ -14,8 +14,9 @@ module Yml2erd
 
         table_names.each do |table_name|
           columns = ''
+          schema_structure.shared_columns.each { |key, value| columns += build_column(key, value) } unless schema_structure.shared_columns.nil?
           schema_structure.columns(table_name).each do |column|
-            column.each { |key, value| columns += "#{key}: <FONT color='gray'>#{value}</FONT><BR/>" }
+            column.each { |key, value| columns += build_column(key, value) }
           end
 
           index = schema_structure.index(table_name)
@@ -45,6 +46,10 @@ module Yml2erd
         else
           "<{<FONT POINT-SIZE='15'>#{table_name}</FONT> | #{columns}}>"
         end
+      end
+
+      def build_column(name, type)
+        "#{name}: <FONT color='gray'>#{type}</FONT><BR/>"
       end
     end
   end

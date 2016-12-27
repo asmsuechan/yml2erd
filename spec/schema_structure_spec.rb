@@ -40,4 +40,10 @@ describe Yml2erd::SchemaStructure do
       expect(ss.columns(table_name).class).to eq(Array)
     end
   end
+
+  describe '#shared_columns' do
+    it 'should return a hash' do
+      expect(ss.shared_columns.class).to eq(Hash)
+    end
+  end
 end

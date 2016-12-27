@@ -1,23 +1,21 @@
+shared_columns:
+  id: integer
+  created_at: datetime
+  updated_at: datetime
 companies:
   columns:
-    - id: integer
     - name: string
     - address: string
-    - created_at: datetime
-    - updated_at: datetime
   relations:
     has_many:
       - users
 users:
   columns:
-    - id: integer
     - crypted_password: string
     - email: string
     - password_salt: string
     - auth_token: string
     - company_id: integer
-    - created_at: datetime
-    - updated_at: datetime
     - deleted_at: datetime
   index:
     - email
@@ -29,34 +27,25 @@ users:
       - user_logs
 roles:
   columns:
-    - id: integer
     - title: string
     - user_id: intger
-    - created_at: datetime
-    - updated_at: datetime
   relations:
     belongs_to:
       - users
 user_logs:
   columns:
-    - id: integer
     - recently_signed_in: datetime
     - user_id: integer
-    - created_at: datetime
-    - updated_at: datetime
   relations:
     belongs_to:
       - users
 posts:
   columns:
-    - id: integer
     - title: string
     - body: text
     - attachment_path: string
     - deleted_at: datetime
     - user_id: integer
-    - created_at: datetime
-    - updated_at: datetime
   index:
     - user_id
   relations:
