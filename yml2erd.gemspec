@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["suenagaryoutaabc@gmail.com"]
 
   spec.summary       = %q{This gem allows us to generate an erd easily.}
-  spec.description   = %q{Convert erd from a simple yml}
+  spec.description   = %q{This gem generates erd from a simple yml.}
   spec.homepage      = "https://github.com/asmsuechan/yml2erd"
   spec.license       = "MIT"
 
