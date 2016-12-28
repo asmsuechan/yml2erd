@@ -1,7 +1,7 @@
 module Yml2erd
   class SchemaStructure
     class Validator
-      RELATIONS_KEY = %w(belongs_to has_many)
+      RELATIONS_KEY = %w(belongs_to has_many has_one)
 
       class InvalidKeyNameError < StandardError;end
       class InvalidYmlStructureError < StandardError;end
