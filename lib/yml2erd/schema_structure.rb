@@ -15,10 +15,15 @@ module Yml2erd
     end
 
     # returns a hash like below
-    # { users: { belongs_to: ['user_auths', 'companies'], has_many: ['posts'] } }
+    # { belongs_to: ['user_auths', 'companies'], has_many: ['posts'] }
     def relation(table_name)
       relations = structure_yml[table_name]['relations']
-      # { table_name.to_sym => relations }
+    end
+
+    # returns an array like below
+    # ['user_auths', 'companies']
+    def belongs(table_name)
+      relation(table_name)['belongs_to']
     end
 
     def relations
