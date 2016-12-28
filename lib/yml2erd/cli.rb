@@ -23,7 +23,12 @@ module Yml2erd
 
     private
 
+    def abort_unless_yml(path)
+      abort 'file must be a .yml file' unless path =~ /\.yml$/
+    end
+
     def load_yml(path)
+      abort_unless_yml(path)
       abort "#{path} is not found, please check your .yml file path" unless File.exists?(path)
       yml = YAML.load_file(path)
       Yml2erd::Parser.parse(yml)
