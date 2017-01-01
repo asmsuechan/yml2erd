@@ -10,6 +10,7 @@ companies:
     has_many:
       - users
 users:
+  comment: This is users table.
   columns:
     - crypted_password: string
     - email: string

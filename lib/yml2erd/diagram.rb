@@ -20,7 +20,8 @@ module Yml2erd
           end
 
           index = schema_structure.index(table_name)
-          label = build_label(table_name, columns, index)
+          comment = schema_structure.comment(table_name)
+          label = build_label(table_name, columns, index, comment)
           g.add_nodes(table_name, shape: "record", label: label, style: "rounded")
         end
 
@@ -40,12 +41,15 @@ module Yml2erd
         end
       end
 
-      def build_label(table_name, columns, index)
-        if index
-          "<{<FONT POINT-SIZE='15'>#{table_name}</FONT> | #{columns} | indexed: #{index.to_s}}>"
-        else
-          "<{<FONT POINT-SIZE='15'>#{table_name}</FONT> | #{columns}}>"
-        end
+      def build_label(table_name, columns, index, comment)
+        partial ||= "| indexed: #{index.to_s}" if index
+        partial += "| #{comment}" if comment
+        base_label(table_name, columns, partial)
+      end
+
+      # TODO: Contemplates method name
+      def base_label(table_name, columns, partial = nil)
+        base = "<{<FONT POINT-SIZE='15'>#{table_name}</FONT> | #{columns}#{partial}}>"
       end
 
       def build_column(name, type)

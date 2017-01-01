@@ -53,5 +53,11 @@ module Yml2erd
     def shared_columns
       structure_yml['shared_columns']
     end
+
+    # returns a string like below
+    # => "This is users table"
+    def comment(table_name)
+      structure_yml[table_name]['comment']
+    end
   end
 end
