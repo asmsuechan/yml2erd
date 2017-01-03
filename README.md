@@ -1,11 +1,9 @@
 # Yml2erd
 [![Build Status](https://travis-ci.org/asmsuechan/yml2erd.svg?branch=master)](https://travis-ci.org/asmsuechan/yml2erd)
 
-yml2erd allows us to generate erd easily.
+yml2erd generates erd easily.
 
 ![output_image](https://raw.githubusercontent.com/asmsuechan/asmsuechan.github.io/master/images/image.png)
-
-When I consider database structure, I wanted erd generator. However there are no tools to fit. So I created.
 
 ## Installation
 Before install this gem, you need to install graphviz.
@@ -14,19 +12,9 @@ Before install this gem, you need to install graphviz.
 $ brew install graphviz
 ```
 
-You can get more from [here](http://www.graphviz.org/Download..php)
+You can get more about graphviz from [here](http://www.graphviz.org/Download..php).
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'yml2erd'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
+This is how to install yml2erd, just run `gem install yml2erd`
 
     $ gem install yml2erd
 
@@ -44,7 +32,7 @@ Usage:
 
 Options:
   o, [--output=FILE_PATH]          # default: output.png
-  p, [--projectname=PROJECT_NAME]
+  p, [--projectname=PROJECT_NAME]  # default: null
   s, [--outputstyle=OUTPUT_STYLE]  # svg or png, default: png
 
 Convert erd from yml
@@ -53,7 +41,8 @@ Convert erd from yml
 ## Rule
 You must write yml just like below
 
-```
+```yml
+# basic format
 <table_name>:
   columns:
     - <column_name>: <column_type>
