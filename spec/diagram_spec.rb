@@ -13,11 +13,11 @@ describe Yml2erd::Diagram do
     let(:opts_png) { { output_style: 'png' } }
     let(:opts_output_path) { { output_path: './output.png' } }
 
-    let(:diagram_default) { Yml2erd::Diagram.create(ss, opts_default) }
-    let(:diagram_project_name) { Yml2erd::Diagram.create(ss, opts_project_name) }
-    let(:diagram_svg) { Yml2erd::Diagram.create(ss, opts_svg) }
-    let(:diagram_png) { Yml2erd::Diagram.create(ss, opts_png) }
-    let(:diagram_output_path) { Yml2erd::Diagram.create(ss, opts_output_path) }
+    let(:diagram_default) { Yml2erd::Diagram.new.create(ss, opts_default) }
+    let(:diagram_project_name) { Yml2erd::Diagram.new.create(ss, opts_project_name) }
+    let(:diagram_svg) { Yml2erd::Diagram.new.create(ss, opts_svg) }
+    let(:diagram_png) { Yml2erd::Diagram.new.create(ss, opts_png) }
+    let(:diagram_output_path) { Yml2erd::Diagram.new.create(ss, opts_output_path) }
 
     it 'should create erd' do
       aggregate_failures do

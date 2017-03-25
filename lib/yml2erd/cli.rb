@@ -13,11 +13,11 @@ module Yml2erd
       abort_if_graphviz_isnt_installed
       schema_structure = load_yml(path)
       opts = {
-        output_path: options[:output_path],
+        output_path: options[:output],
         project_name: options[:projectname],
         output_style: options[:outputstyle]
       }
-      Yml2erd::Diagram.create(schema_structure, opts)
+      Yml2erd::Diagram.new.create(schema_structure, opts)
       puts 'Successfully converted!'
     end
 
