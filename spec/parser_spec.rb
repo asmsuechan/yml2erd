@@ -4,7 +4,7 @@ require 'yaml'
 describe Yml2erd::Parser do
   let(:path) { './sample.yml' }
   let(:yml) { YAML.load_file(path) }
-  let(:ss) { Yml2erd::Parser.parse(yml) }
+  let(:ss) { Yml2erd::Parser.new.parse(yml) }
 
   describe '#parser' do
     it 'should not raise any errors' do

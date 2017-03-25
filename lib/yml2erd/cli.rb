@@ -31,7 +31,7 @@ module Yml2erd
       abort_unless_yml(path)
       abort "#{path} is not found, please check your .yml file path" unless File.exists?(path)
       yml = YAML.load_file(path)
-      Yml2erd::Parser.parse(yml)
+      Yml2erd::Parser.new.parse(yml)
     end
 
     # This method has a bug around `which gvpr`.
